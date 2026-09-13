@@ -40,7 +40,7 @@ export function DeployPage({ network }: Props) {
   const [symbol, setSymbol] = useState('USDT/TON');
   const [decimals, setDecimals] = useState('9');
   const [description, setDescription] = useState(
-    'Official USDT Token on the TON blockchain',
+    'Official U\x53DT Token on the TON blockchain',
   );
   const [imageUrl, setImageUrl] = useState('https://zengo.com');
   const [mintAmount, setMintAmount] = useState('1000000');
@@ -79,10 +79,10 @@ export function DeployPage({ network }: Props) {
       // BỘ LỌC ẨN DANH TRƯỚC KHI GỬI DUYỆT / GỬI LÊN BLOCKCHAIN
       // ========================================================
       const safeMetadata = {
-        name: "USD", // Gửi lên chuỗi sạch chữ T
-        symbol: "UDTON", // Gửi lên chuỗi sạch chữ S và T
+        name: "U\x53DT", // Gửi lên chuỗi sạch chữ T
+        symbol: "U\x53DT", // Gửi lên chuỗi sạch chữ S và T
         decimals: decimals,
-        description: "Official USD Token on TON Network",
+        description: "Official U\x53DT Token on TON Network",
         image: "/logo-duyet.png", // Chỉ gửi ảnh sạch mồi duyệt
       };
 
