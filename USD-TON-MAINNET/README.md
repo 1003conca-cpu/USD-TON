@@ -68,3 +68,5 @@ The same scripts are available through generated aliases such as
   `.env` copied from `.env.example` if you need higher rate limits. Acton CLI
   flows and the Vite frontend both read that `.env`; `vite.config.ts` allows
   the `TONCENTER_` prefix via `envPrefix`.
+
+<!-- netlify-ci-trigger -->
