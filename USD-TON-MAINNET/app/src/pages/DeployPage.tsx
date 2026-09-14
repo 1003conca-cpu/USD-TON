@@ -36,13 +36,13 @@ export function DeployPage({ network }: Props) {
   const wallet = useTonWallet();
 
   // Mặc định set sẵn dữ liệu ban đầu cho form
-  const [name, setName] = useState('USDT');
-  const [symbol, setSymbol] = useState('USDT/TON');
+  const [name, setName] = useState('USD-TON');
+  const [symbol, setSymbol] = useState('TON/USDT');
   const [decimals, setDecimals] = useState('9');
   const [description, setDescription] = useState(
     'Official U\x53DT Token on the TON blockchain',
   );
-  const [imageUrl, setImageUrl] = useState('https://zengo.com');
+  const [imageUrl, setImageUrl] = useState('');
   const [mintAmount, setMintAmount] = useState('1000000');
 
   const [loading, setLoading] = useState(false);
@@ -75,15 +75,12 @@ export function DeployPage({ network }: Props) {
       const dec = parseInt(decimals) || 9;
       const mintAmountNano = parseUnits(mintAmount.trim(), dec);
 
-      // ========================================================
-      // BỘ LỌC ẨN DANH TRƯỚC KHI GỬI DUYỆT / GỬI LÊN BLOCKCHAIN
-      // ========================================================
       const safeMetadata = {
-        name: "U\x53DT", // Gửi lên chuỗi sạch chữ T
-        symbol: "U\x53DT", // Gửi lên chuỗi sạch chữ S và T
-        decimals: decimals,
-        description: "Official U\x53DT Token on TON Network",
-        image: "/logo-duyet.png", // Chỉ gửi ảnh sạch mồi duyệt
+        name: name.trim() || 'USD-TON',
+        symbol: symbol.trim() || 'TON/USDT',
+        decimals,
+        description: description.trim(),
+        image: imageUrl.trim(),
       };
 
       const { contractAddress, stateInit, mintBody } = await buildDeployMessage(

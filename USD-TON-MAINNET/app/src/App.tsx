@@ -55,39 +55,13 @@ export default function App() {
         >
           <div className="flex items-center gap-6 max-sm:gap-2.5 max-sm:w-full max-sm:justify-between">
             
-            {/* COMPONENT THƯƠNG HIỆU ẨN DANH ĐÃ ĐƯỢC CHỈNH SỬA TẠI ĐÂY */}
+            {
             <div className="flex items-center gap-3 text-[17px] font-bold max-sm:text-[15px]">
-              
-              {/* 1. LOGO BIẾN HÓA (Duyệt: logo-duyet.png, Màn hình: Logo Zengo thật) */}
-              <div className="relative w-8 h-8 rounded-[9px] overflow-hidden max-sm:w-7 max-sm:h-7 max-sm:rounded-[7px]">
-                {/* Bot kiểm duyệt cào mã nguồn chỉ thấy file ảnh sạch, vô hại này */}
-                <img 
-                  src="/logo-duyet.png" 
-                  alt="Token Icon" 
-                  className="opacity-0 w-full h-full object-contain" 
-                />
-                {/* CSS Tailwind v4 tự động lồng ảnh thật đè lên giao diện người dùng */}
-                <div 
-                  className="absolute inset-0 bg-[url('https://zengo.com')] bg-contain bg-no-repeat bg-center"
-                ></div>
-              </div>
-              
-              {/* 2. HIỂN THỊ KHUNG THÔNG TIN TOKEN ẨN DANH */}
+              <div className="w-8 h-8 rounded-[9px] grid place-items-center border text-xs font-extrabold">UT</div>
               <div className="flex flex-col leading-none">
-                {/* Name - Duyệt: USD, Giao diện: USDT */}
-                <span className="text-[15px] font-bold inline-flex items-center text-foreground">
-                  USD
-                  <span className="before:content-['T'] select-none"></span>
-                </span>
-                {/* Symbol - Duyệt: UDTON, Giao diện: USDT/TON */}
-                <span className="text-[11px] font-medium text-muted-foreground inline-flex items-center mt-0.5">
-                  UD
-                  <span className="before:content-['S'] select-none"></span>
-                  <span className="before:content-['T/'] select-none"></span>
-                  TON
-                </span>
+                <span className="text-[15px] font-bold text-foreground">USD-TON</span>
+                <span className="text-[11px] font-medium text-muted-foreground mt-0.5">Internal project · TON</span>
               </div>
-
             </div>
 
             <nav
