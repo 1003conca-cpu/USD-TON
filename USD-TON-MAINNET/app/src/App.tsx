@@ -54,8 +54,6 @@ export default function App() {
           }}
         >
           <div className="flex items-center gap-6 max-sm:gap-2.5 max-sm:w-full max-sm:justify-between">
-            
-            {
             <div className="flex items-center gap-3 text-[17px] font-bold max-sm:text-[15px]">
               <div className="w-8 h-8 rounded-[9px] grid place-items-center border text-xs font-extrabold">UT</div>
               <div className="flex flex-col leading-none">
@@ -71,13 +69,7 @@ export default function App() {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`rounded-full px-4 h-[34px] text-[15px] font-bold max-sm:h-[30px] max-sm:px-3.5 max-sm:text-[13px] hover:bg-transparent ${
-                  page === 'create'
-                    ? 'bg-[#0098EA] text-white hover:bg-[#0098EA] hover:text-white'
-                    : theme === 'light'
-                      ? 'text-muted-foreground hover:text-foreground'
-                      : 'text-white/60 hover:text-white'
-                }`}
+                className={`rounded-full px-4 h-[34px] text-[15px] font-bold max-sm:h-[30px] max-sm:px-3.5 max-sm:text-[13px] hover:bg-transparent ${page === 'create' ? 'bg-[#0098EA] text-white hover:bg-[#0098EA] hover:text-white' : theme === 'light' ? 'text-muted-foreground hover:text-foreground' : 'text-white/60 hover:text-white'}`}
                 onClick={() => go('create')}
               >
                 Create
@@ -85,19 +77,14 @@ export default function App() {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`rounded-full px-4 h-[34px] text-[15px] font-bold max-sm:h-[30px] max-sm:px-3.5 max-sm:text-[13px] hover:bg-transparent ${
-                  page === 'manage'
-                    ? 'bg-[#0098EA] text-white hover:bg-[#0098EA] hover:text-white'
-                    : theme === 'light'
-                      ? 'text-muted-foreground hover:text-foreground'
-                      : 'text-white/60 hover:text-white'
-                }`}
+                className={`rounded-full px-4 h-[34px] text-[15px] font-bold max-sm:h-[30px] max-sm:px-3.5 max-sm:text-[13px] hover:bg-transparent ${page === 'manage' ? 'bg-[#0098EA] text-white hover:bg-[#0098EA] hover:text-white' : theme === 'light' ? 'text-muted-foreground hover:text-foreground' : 'text-white/60 hover:text-white'}`}
                 onClick={() => go('manage')}
               >
                 Manage
               </Button>
             </nav>
           </div>
+
           <div className="flex items-center gap-2.5">
             <Button
               variant="ghost"
@@ -110,17 +97,9 @@ export default function App() {
               onClick={toggle}
               title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
             >
-              {theme === 'dark' ? (
-                <Sun className="size-[18px]" />
-              ) : (
-                <Moon className="size-[18px]" />
-              )}
+              {theme === 'dark' ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
             </Button>
-            <NetworkDropdown
-              network={network}
-              setTestnet={setTestnet}
-              theme={theme}
-            />
+            <NetworkDropdown network={network} setTestnet={setTestnet} theme={theme} />
             <TonConnectButton />
           </div>
         </header>
@@ -129,11 +108,7 @@ export default function App() {
           {page === 'create' ? (
             <DeployPage network={network} />
           ) : (
-            <ManagePage
-              network={network}
-              initialAddress={address}
-              onAddressChange={setAddress}
-            />
+            <ManagePage network={network} initialAddress={address} onAddressChange={setAddress} />
           )}
         </main>
       </div>
@@ -161,37 +136,19 @@ function NetworkDropdown({
             color: theme === 'light' ? 'var(--foreground)' : '#fff',
           }}
         >
-          <Circle
-            className="size-2 fill-current"
-            style={{
-              color:
-                network === 'testnet' ? 'var(--warning)' : 'var(--success)',
-            }}
-          />
+          <Circle className="size-2 fill-current" style={{ color: network === 'testnet' ? 'var(--warning)' : 'var(--success)' }} />
           {network === 'mainnet' ? 'Mainnet' : 'Testnet'}
           <ChevronDown className="size-3 opacity-50" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[180px] rounded-xl p-2">
-        <DropdownMenuItem
-          className="rounded-xl px-3.5 py-3 text-[15px] font-medium gap-2.5 cursor-pointer"
-          onClick={() => setTestnet(false)}
-        >
-          <Circle
-            className="size-2 fill-current"
-            style={{ color: 'var(--success)' }}
-          />
+        <DropdownMenuItem className="rounded-xl px-3.5 py-3 text-[15px] font-medium gap-2.5 cursor-pointer" onClick={() => setTestnet(false)}>
+          <Circle className="size-2 fill-current" style={{ color: 'var(--success)' }} />
           Mainnet
           {network === 'mainnet' && <Check className="size-4 ml-auto" />}
         </DropdownMenuItem>
-        <DropdownMenuItem
-          className="rounded-xl px-3.5 py-3 text-[15px] font-medium gap-2.5 cursor-pointer"
-          onClick={() => setTestnet(true)}
-        >
-          <Circle
-            className="size-2 fill-current"
-            style={{ color: 'var(--warning)' }}
-          />
+        <DropdownMenuItem className="rounded-xl px-3.5 py-3 text-[15px] font-medium gap-2.5 cursor-pointer" onClick={() => setTestnet(true)}>
+          <Circle className="size-2 fill-current" style={{ color: 'var(--warning)' }} />
           Testnet
           {network === 'testnet' && <Check className="size-4 ml-auto" />}
         </DropdownMenuItem>
