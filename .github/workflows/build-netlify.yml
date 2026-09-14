@@ -1,0 +1,28 @@
+name: Build Netlify Artifact
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: USD-TON-MAINNET
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: USD-TON-MAINNET/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build:web
+      - uses: actions/upload-artifact@v4
+        with:
+          name: netlify-dist
+          path: USD-TON-MAINNET/dist
+          if-no-files-found: error
